@@ -15,7 +15,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <h2>Sign Up</h2>
+      <h2>Sign Up Here</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label>
