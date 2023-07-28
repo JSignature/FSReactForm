@@ -7,7 +7,20 @@ const SignUpForm = () => {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    const user = { username: username, password: password }
     try {
+      const response = await fetch(
+        'https://fsa-jwt-practice.herokuapp.com/signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        }
+      )
+      const result = await response.json()
+      console.log(result)
     } catch (error) {
       setError(error.message)
     }
