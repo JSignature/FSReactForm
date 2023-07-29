@@ -8,7 +8,6 @@ function App() {
 
   return (
     <>
-      <h1>This workshop is not complete</h1>
       <SignUpForm token={token} setToken={setToken} />
       <Authenitcate token={token} setToken={setToken} />
     </>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Authenitcate = ({ token }) => {
   const [error, setError] = useState(null)
   const [successMessage, setSuccessMessage] = useState(null)
+  const [userName, setUserName] = useState(null)
 
   async function handleClick() {
     console.log('clicked', token)
@@ -20,6 +21,7 @@ const Authenitcate = ({ token }) => {
       )
       const result = await response.json()
       setSuccessMessage(result.message)
+      setUserName(result.data.username)
     } catch (error) {
       setError(error.message)
     }
@@ -27,8 +29,8 @@ const Authenitcate = ({ token }) => {
 
   return (
     <>
-      <h2>Authenitcate</h2>
-      {successMessage && <p>{successMessage}</p>}
+      <h2>Authenticate</h2>
+      {successMessage && <p>{`${userName}, ${successMessage}`}</p>}
       {error && <p>{error}</p>}
       <button onClick={handleClick}>Authenticate Token</button>
     </>
